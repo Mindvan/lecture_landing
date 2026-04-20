@@ -23,7 +23,7 @@ export const registrationPhoneRules: SharedRules<'phone'> = {
   validate: (value) =>
     isValidRuPhone(value)
       ? true
-      : 'Введите номер в формате +7 (XXX) XXX-XX-XX или 10 цифр без кода страны',
+      : 'Введите 10 цифр без кода страны',
 }
 
 export const registrationCompanyRules: SharedRules<'company'> = {

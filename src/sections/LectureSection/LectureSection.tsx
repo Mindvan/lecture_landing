@@ -2,14 +2,13 @@ import { useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import iconDown from '../../assets/icons/down.png'
 import linesLecture from '../../assets/lines-3.svg'
+import { ErrorSubmitModal } from '../../components/ui/ErrorSubmitModal/ErrorSubmitModal'
 import { FormFieldError } from '../../components/ui/FormFieldError/FormFieldError'
+import { SuccessSubmitModal } from '../../components/ui/SuccessSubmitModal/SuccessSubmitModal'
+import { rollSimulatedServerFailure } from '../../lib/simulateServerSubmit'
 import { lectureQuestionsRules, lectureSharedFieldRules } from '../../forms/registrationFieldRules'
 import type { LectureRegistration } from '../../types/registration'
 import { lectureCardsByDate, lectureProgramDays } from '../../data/lectureProgram'
-
-const onLectureSubmit: SubmitHandler<LectureRegistration> = () => {
-  /* TODO: отправка на бэкенд */
-}
 
 function pluralLectures(n: number): string {
   const n100 = n % 100
@@ -35,10 +34,23 @@ export function LectureSection() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = lectureForm
 
+  const [successOpen, setSuccessOpen] = useState(false)
+  const [errorOpen, setErrorOpen] = useState(false)
   const [selectedLectureIds, setSelectedLectureIds] = useState<Set<string>>(() => new Set())
+
+  const onLectureSubmit: SubmitHandler<LectureRegistration> = () => {
+    if (rollSimulatedServerFailure()) {
+      setErrorOpen(true)
+      return
+    }
+    reset()
+    setSelectedLectureIds(new Set())
+    setSuccessOpen(true)
+  }
 
   const toggleLectureSelection = (id: string) => {
     setSelectedLectureIds((prev) => {
@@ -287,10 +299,30 @@ export function LectureSection() {
                 </a>
                 .
               </p>
+              <button
+                type='button'
+                className='caption absolute top-0 right-0 px-4 py-2 cursor-pointer hover:text-blue ease-out transition-colors'
+                onClick={() => setErrorOpen(true)}
+              >
+                Симулировать ошибку сервера
+              </button>
             </div>
           </form>
         </div>
       </div>
+
+      <SuccessSubmitModal
+        open={successOpen}
+        onClose={() => setSuccessOpen(false)}
+        title='Регистрация отправлена'
+        description='Спасибо! Мы отправим детали участия на указанный email. До встречи на лектории.'
+      />
+      <ErrorSubmitModal
+        open={errorOpen}
+        onClose={() => setErrorOpen(false)}
+        title='Не удалось отправить регистрацию'
+        description='Сервер временно недоступен или ответил с ошибкой. Пожалуйста, попробуйте ещё раз чуть позже. Если проблема повторится - напишите нам на почту.'
+      />
     </section>
   )
 }

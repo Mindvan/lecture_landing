@@ -1,6 +1,10 @@
 import type { ReactElement } from 'react'
+import { useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
+import { ErrorSubmitModal } from '../../components/ui/ErrorSubmitModal/ErrorSubmitModal'
 import { FormFieldError } from '../../components/ui/FormFieldError/FormFieldError'
+import { SuccessSubmitModal } from '../../components/ui/SuccessSubmitModal/SuccessSubmitModal'
+import { rollSimulatedServerFailure } from '../../lib/simulateServerSubmit'
 import {
   registrationCompanyRules,
   registrationEmailRules,
@@ -10,11 +14,10 @@ import {
 } from '../../forms/registrationFieldRules'
 import type { RoundtableRegistration } from '../../types/registration'
 
-const onRoundtableSubmit: SubmitHandler<RoundtableRegistration> = (data) => {
-  console.log('регистрация на круглый стол', data)
-}
-
 export function RoundTableRegistrationSection(): ReactElement {
+  const [successOpen, setSuccessOpen] = useState(false)
+  const [errorOpen, setErrorOpen] = useState(false)
+
   const roundtableForm = useForm<RoundtableRegistration>({
     defaultValues: {
       fullName: '',
@@ -28,8 +31,19 @@ export function RoundTableRegistrationSection(): ReactElement {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = roundtableForm
+
+  const onRoundtableSubmit: SubmitHandler<RoundtableRegistration> = (data) => {
+    console.log('регистрация на круглый стол', data)
+    if (rollSimulatedServerFailure()) {
+      setErrorOpen(true)
+      return
+    }
+    reset()
+    setSuccessOpen(true)
+  }
 
   return (
     <section
@@ -47,7 +61,7 @@ export function RoundTableRegistrationSection(): ReactElement {
       </div>
 
       <form
-        className='tiles-nohover gap-[3.9rem] flex flex-col h-[30.75rem]'
+        className='tiles-nohover relative gap-[3.9rem] flex flex-col h-[30.75rem]'
         onSubmit={handleSubmit(onRoundtableSubmit)}
         noValidate
       >
@@ -156,8 +170,28 @@ export function RoundTableRegistrationSection(): ReactElement {
             </a>
             .
           </p>
+          <button
+            type='button'
+            className='caption absolute top-0 right-0 px-4 py-2 cursor-pointer hover:text-blue ease-out transition-colors'
+            onClick={() => setErrorOpen(true)}
+          >
+            Симулировать ошибку сервера
+          </button>
         </div>
       </form>
+
+      <SuccessSubmitModal
+        open={successOpen}
+        onClose={() => setSuccessOpen(false)}
+        title='Заявка принята'
+        description='Спасибо! После проверки данных мы свяжемся с вами по указанным контактам.'
+      />
+      <ErrorSubmitModal
+        open={errorOpen}
+        onClose={() => setErrorOpen(false)}
+        title='Не удалось отправить заявку'
+        description='Сервер временно недоступен или ответил с ошибкой. Пожалуйста, попробуйте ещё раз чуть позже. Если проблема повторится - напишите нам на почту.'
+      />
     </section>
   )
 }

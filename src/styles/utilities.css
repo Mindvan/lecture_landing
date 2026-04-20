@@ -44,6 +44,7 @@
 
 @utility btn-primary {
   @apply body-l;
+  color: var(--color-white);
   border-radius: 8px;
   padding: 12px 24px;
   cursor: pointer;
@@ -63,6 +64,7 @@
 
 @utility btn-secondary {
   @apply body-l;
+  color: var(--color-white);
   padding: 12px 24px;
   cursor: pointer;
   height: 52px;
@@ -119,6 +121,18 @@
   &:focus-visible {
     outline: none;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+  }
+
+  &[aria-invalid='true'] {
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(255, 102, 0, 0.85);
+  }
+
+  &[aria-invalid='true']:focus,
+  &[aria-invalid='true']:focus-visible {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.4),
+      0 0 0 3px rgba(255, 102, 0, 0.65);
   }
 }
 
@@ -268,16 +282,10 @@
   padding: 2px 16px;
 }
 
-@utility program-group-validation {
-  @apply program-group;
-  border-color: #ff6600;
+@utility validation {
   color: #ff6600;
-  background-color: var(--color-blue-dark);
-  background-image: linear-gradient(
-    90deg,
-    color-mix(in srgb, #ff6600 10%, transparent) 0%,
-    color-mix(in srgb, #ff8b3d 10%, transparent) 100%
-  );
+  position: absolute;
+  top: 100%;
 }
 
 @utility lecture-time {

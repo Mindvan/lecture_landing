@@ -10,7 +10,12 @@ export function SiteHeader() {
           <ul className='flex gap-x-[1.5rem]'>
             {navItems.map((item) => (
               <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+                <a
+                  href={item.href}
+                  className='body-m text-white transition-[color,text-decoration-color] duration-200 ease-out hover:text-blue'
+                >
+                  {item.label}
+                </a>
               </li>
             ))}
           </ul>
