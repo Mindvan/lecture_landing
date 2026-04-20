@@ -92,9 +92,7 @@ export function Timeline({
 
 export type TimelineItemProps = {
   children: ReactNode
-  /** Пробрасывается из {@link Timeline}, не задавать вручную. */
   isLastInTimeline?: boolean
-  /** Пробрасывается из {@link Timeline}, не задавать вручную. */
   tailBridgeDistance?: string
 }
 

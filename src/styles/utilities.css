@@ -20,6 +20,10 @@
   
 }
 
+@utility leacture-title {
+  @apply h3;
+}
+
 @utility body-l {
   font-size: var(--text-body-l);
   line-height: var(--text-body-l--line-height);
@@ -170,8 +174,67 @@
 }
 
 @utility lecture-card {
-  @apply tiles;
+  position: relative;
+  isolation: isolate;
+  border-radius: 8px;
   padding: 24px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  box-shadow: none;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 109, 239, 0.1) 0%,
+      rgba(114, 199, 252, 0.1) 100%
+    ),
+    linear-gradient(var(--color-blue-dark), var(--color-blue-dark));
+  background-clip: padding-box, padding-box;
+  background-origin: padding-box, padding-box;
+  transition: box-shadow 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 1px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-blue-light) 80%, transparent) 0%,
+      color-mix(in srgb, var(--color-blue-accent) 80%, transparent) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &[data-selected='true']::before {
+    opacity: 1;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 0 16px 0 rgba(114, 199, 252, 0.5);
+    }
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-blue-light) 70%, transparent);
+    outline-offset: 3px;
+  }
 }
 
 @utility square-icons {
@@ -203,6 +266,18 @@
   border: 1px solid var(--blue);
   border-radius: 8px;
   padding: 2px 16px;
+}
+
+@utility program-group-validation {
+  @apply program-group;
+  border-color: #ff6600;
+  color: #ff6600;
+  background-color: var(--color-blue-dark);
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in srgb, #ff6600 10%, transparent) 0%,
+    color-mix(in srgb, #ff8b3d 10%, transparent) 100%
+  );
 }
 
 @utility lecture-time {
