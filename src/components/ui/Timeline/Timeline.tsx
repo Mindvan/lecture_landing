@@ -1,11 +1,6 @@
 import { Children, cloneElement, isValidElement, useId } from 'react'
 import type { CSSProperties, ReactElement, ReactNode } from 'react'
 
-/**
- * Расстояние от низа текущего шага до верха следующего кружка **внутри одного** Timeline:
- * `gap` между {@link TimelineItem} + `pt` колонки с кружком следующего шага.
- * Должно совпадать с `gap-*` на корне Timeline и с `pt-[…]` у колонки узла.
- */
 const timelineShellStyle = {
   ['--tl-item-gap']: '3rem',
   ['--tl-node-pt']: '1.5rem',
@@ -14,11 +9,6 @@ const timelineShellStyle = {
 type TimelineProps = {
   children: ReactNode
   className?: string
-  /**
-   * Сумма величин от низа последнего пункта до верха кружка **следующего** блока Timeline
-   * (margin-bottom этого блока + `gap` у общего родителя + `pt` следующего кружка).
-   * Передаётся как выражение **внутри** внешнего `calc(-1 * (…))`, например `1.5rem + 3rem + 1.5rem`.
-   */
   bridgeTailDistance?: string
 }
 
@@ -75,7 +65,6 @@ function TimelineNode() {
   )
 }
 
-/** Вертикальная шкала: узлы — через {@link TimelineItem}. */
 export function Timeline({
   children,
   className = '',

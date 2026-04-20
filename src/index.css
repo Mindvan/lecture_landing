@@ -3,3 +3,30 @@
 *::after {
   box-sizing: border-box;
 }
+
+:root {
+  /* Отступ для переходов по якорям (чтобы заголовки не прилипали к верху). */
+  --anchor-offset: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-offset);
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+#root {
+  overflow-x: clip;
+}
+
+/* Для всех секций с id: корректный отступ при переходе по якорю. */
+[id] {
+  scroll-margin-top: var(--anchor-offset);
+}

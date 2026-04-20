@@ -1,0 +1,39 @@
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+  --spacing-18: calc(var(--spacing) * 18);
+  --color-blue: #75c9ea;
+  --blue: var(--color-blue);
+  --color-blue-dark: #131c2d;
+  --color-footer: #0c1b2b;
+  --color-blue-light: #77cddd;
+  --color-blue-accent: #0ba1dd;
+  --color-orange: #f60;
+  --color-orange-light: #ff8b3d;
+  --color-white: #fff;
+  --color-ink: #000;
+  --color-form-muted: rgb(0 12 20 / 0.5);
+  --color-placeholder: rgb(255 255 255 / 0.3);
+
+  --tracking-m01: -0.01em;
+  --tracking-p01: 0.009em;
+  --tracking-m005: -0.005em;
+  --tracking-p005: 0.005em;
+  --tracking-m02: -0.02em;
+
+  --text-body-l: 18px;
+  --text-body-l--line-height: 156%;
+  --text-body-m: 16px;
+  --text-body-m--line-height: 150%;
+  --text-caption: 14px;
+  --text-caption--line-height: 143%;
+  --text-h3: 24px;
+  --text-h3--line-height: 133%;
+  --text-h2: 40px;
+  --text-h2--line-height: 120%;
+  --text-h1: 56px;
+  --text-h1--line-height: 114%;
+
+  --font-weight-h2: 600;
+  --font-weight-h3: 500;
+  --font-weight-h1: 700;
+}

@@ -1,0 +1,213 @@
+@utility h1 {
+  font-size: var(--text-h1);
+  line-height: var(--text-h1--line-height);
+  letter-spacing: var(--tracking-m01);
+  font-weight: var(--font-weight-h1);
+}
+
+@utility h2 {
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  letter-spacing: var(--tracking-m005);
+  font-weight: var(--font-weight-h2);
+}
+
+@utility h3 {
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
+  font-weight: var(--font-weight-h3);
+  letter-spacing: var(--tracking-p01);
+  
+}
+
+@utility body-l {
+  font-size: var(--text-body-l);
+  line-height: var(--text-body-l--line-height);
+  font-weight: 400;
+}
+
+@utility body-m {
+  font-size: var(--text-body-m);
+  line-height: var(--text-body-m--line-height);
+  font-weight: 400;
+}
+
+@utility caption {
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+  font-weight: 400;
+}
+
+@utility btn-primary {
+  @apply body-l;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  height: 52px;
+  background: linear-gradient(
+    90deg,
+    rgba(119, 205, 221, 0.8) 0%,
+    rgba(11, 161, 221, 0.8) 100%
+  );
+  transition: box-shadow 0.2s ease;
+  letter-spacing: 0;
+
+  &:hover {
+    box-shadow: 0 0 16px 0 rgba(117, 201, 234, 0.5);
+  }
+}
+
+@utility btn-secondary {
+  @apply body-l;
+  padding: 12px 24px;
+  cursor: pointer;
+  height: 52px;
+  letter-spacing: 0;
+  position: relative;
+  border-radius: 8px;
+
+  /* ФОН (10%) */
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 109, 239, 0.1) 0%,
+    rgba(114, 199, 252, 0.1) 100%
+  );
+
+  /* ОБВОДКА (80%) */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(119, 205, 221, 0.8) 0%,
+      rgba(11, 161, 221, 0.8) 100%
+    );
+    pointer-events: none;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 16px 0 rgba(114, 199, 252, 0.5);
+  }
+}
+
+@utility form-input {
+  @apply body-m w-full p-2 caption;
+  background-color: var(--color-form-muted);
+  border-radius: 8px;
+  color: white;
+  transition:
+    box-shadow 200ms ease;
+
+  &::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+  }
+}
+
+@utility agreement-text {
+  @apply caption;
+  font-weight: 300;
+  color: var(--color-placeholder);
+  letter-spacing: var(--tracking-p005);
+}
+
+@utility blue-gradient {
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-blue-light) 80%, transparent) 0%,
+    color-mix(in srgb, var(--color-blue-accent) 80%, transparent) 100%
+  );
+  background-size: 100% 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+}
+
+@utility tiles {
+  border-radius: 8px;
+  padding: 48px;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 109, 239, 0.1) 0%,
+      rgba(114, 199, 252, 0.1) 100%
+    ),
+    linear-gradient(var(--color-blue-dark), var(--color-blue-dark)),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-blue-light) 80%, transparent) 0%,
+      color-mix(in srgb, var(--color-blue-accent) 80%, transparent) 100%
+    );
+  background-clip: padding-box, padding-box, border-box;
+  background-origin: padding-box, padding-box, border-box;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 16px 0 rgba(114, 199, 252, 0.5);
+  }
+}
+
+@utility tiles-nohover {
+  @apply tiles;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+@utility lecture-card {
+  @apply tiles;
+  padding: 24px;
+}
+
+@utility square-icons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 8px;
+  width: 64px;
+  height: 64px;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 109, 239, 0.1) 0%,
+      rgba(114, 199, 252, 0.1) 100%
+    ),
+    linear-gradient(var(--color-blue-dark), var(--color-blue-dark)),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-blue-light) 80%, transparent) 0%,
+      color-mix(in srgb, var(--color-blue-accent) 80%, transparent) 100%
+    );
+  background-clip: padding-box, padding-box, border-box;
+  background-origin: padding-box, padding-box, border-box;
+}
+
+@utility program-group {
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  padding: 2px 16px;
+}
+
+@utility lecture-time {
+  @apply program-group;
+  @apply caption;
+  line-height: 1.28;
+  letter-spacing: var(--tracking-m02);
+}

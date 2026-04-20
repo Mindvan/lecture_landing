@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@source inline(
+  "h1",
+  "h2",
+  "h3",
+  "body-l",
+  "body-m",
+  "caption",
+  "btn-primary",
+  "btn-secondary",
+  "tiles",
+  "square-icons",
+  "program-group"
+);
