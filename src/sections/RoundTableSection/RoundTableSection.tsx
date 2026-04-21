@@ -6,7 +6,7 @@ export function RoundTableSection() {
   return (
     <section
       id='round-table'
-      className='mt-63 relative flex flex-col gap-10'
+      className='mt-63 relative flex flex-col gap-10 md:max-lg:mt-[11.25rem] md:max-lg:gap-[1.44rem]'
       aria-labelledby='roundtable-program-heading'
     >
       <div
@@ -18,24 +18,24 @@ export function RoundTableSection() {
           alt=''
           width={1247}
           height={2019}
-          className='pointer-events-none absolute right-0 top-0 h-auto max-w-none [transform:translate(460px,-330px)_scale(1)]'
+          className='pointer-events-none absolute right-0 top-0 h-auto max-w-none md:max-lg:hidden lg:block [transform:translate(460px,-465px)_scale(1)]'
           aria-hidden
         />
       </div>
-      <div className='btn-secondary pointer-events-none absolute right-0 top-[-2px] z-10 h-auto w-90'>
+      <div className='btn-secondary pointer-events-none absolute right-0 top-[-2px] z-10 h-auto w-90 md:max-lg:w-[13.125rem] md:max-lg:px-4 md:max-lg:py-3'>
         <p className='body-m whitespace-pre-line'>
           Дискуссионный формат <br /> с экспертами отрасли
         </p>
       </div>
 
       <div className='relative z-10 flex flex-col gap-[0.38rem]'>
-        <h2 id='roundtable-program-heading' className='h2'>
+        <h2 id='roundtable-program-heading' className='h2 md:max-lg:w-[18.75rem]'>
           Программа круглого стола
         </h2>
-        <p className='body-l mt-4'>Ключевые векторы дискуссии</p>
+        <p className='body-l mt-4 md:max-lg:mt-[1.25rem]'>Ключевые векторы дискуссии</p>
       </div>
 
-      <div className='relative z-10 flex flex-col gap-12 mt-6'>
+      <div className='relative z-10 flex flex-col gap-12 mt-6 md:max-lg:gap-[0.125rem]'>
         {roundtableProgramSections.map((steps, sectionIndex) => {
           const sectionBadge = steps[0]?.badge
           const timelineMb =
@@ -63,7 +63,9 @@ export function RoundTableSection() {
                     {step.badge}
                   </p>
                   <h3 className='h3'>{step.title}</h3>
-                  <p className='body-m w-full max-w-173 whitespace-pre-line'>{step.body}</p>
+                  <p className='body-m w-full whitespace-pre-line md:max-lg:w-[36.875rem] md:max-lg:leading-[1.2] lg:w-[685px]'>
+                    {step.body}
+                  </p>
                 </TimelineItem>
               ))}
             </Timeline>

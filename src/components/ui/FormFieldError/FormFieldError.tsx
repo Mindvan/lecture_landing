@@ -39,7 +39,6 @@ export function FormFieldError({ id, message }: FormFieldErrorProps) {
       role='alert'
       aria-hidden={!open}
       style={{ transitionDuration: `${TRANSITION_MS}ms` }}
-      // w-max
       className={`validation caption ease-out ${
         open ? 'opacity-100' : 'opacity-0 -translate-y-0.5'
       }`}

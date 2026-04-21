@@ -48,26 +48,26 @@ export function RoundTableRegistrationSection(): ReactElement {
   return (
     <section
       id='registration'
-      className='mt-60 flex flex-col items-center gap-16'
+      className='mt-60 flex flex-col items-center gap-16 md:max-lg:mt-[11.375rem] md:max-lg:gap-12'
       aria-labelledby='registration-heading'
     >
       <div className='mx-auto flex max-w-[42rem] flex-col items-center gap-6 text-center'>
         <h2 id='registration-heading' className='h2'>
           Регистрация на круглый стол
         </h2>
-        <p className='body-l relative right-[0.75rem]'>
+        <p className='body-l relative lg:right-[0.75rem]'>
           Для участия в закрытой дискуссии <br /> необходимо заполнить информацию о себе
         </p>
       </div>
 
       <form
-        className='tiles-nohover relative gap-[3.9rem] flex flex-col h-[30.75rem]'
+        className='tiles-nohover relative flex flex-col gap-[3.9rem] h-[30.75rem] md:max-lg:h-auto md:max-lg:gap-[3.125rem]'
         onSubmit={handleSubmit(onRoundtableSubmit)}
         noValidate
       >
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 ${errors.fullName ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.fullName ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-fullname' className='body-m'>
               ФИО<span className='text-white'>*</span>
@@ -85,7 +85,7 @@ export function RoundTableRegistrationSection(): ReactElement {
             <FormFieldError id='reg-fullname-error' message={errors.fullName?.message} />
           </div>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 ${errors.phone ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.phone ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-phone' className='body-m'>
               Телефон<span className='text-white'>*</span>
@@ -103,7 +103,7 @@ export function RoundTableRegistrationSection(): ReactElement {
             <FormFieldError id='reg-phone-error' message={errors.phone?.message} />
           </div>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 ${errors.company ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.company ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-company' className='body-m'>
               Компания<span className='text-white'>*</span>
@@ -121,7 +121,7 @@ export function RoundTableRegistrationSection(): ReactElement {
             <FormFieldError id='reg-company-error' message={errors.company?.message} />
           </div>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 ${errors.position ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.position ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-position' className='body-m'>
               Должность<span className='text-white'>*</span>
@@ -139,7 +139,7 @@ export function RoundTableRegistrationSection(): ReactElement {
             <FormFieldError id='reg-position-error' message={errors.position?.message} />
           </div>
           <div
-            className={`relative flex flex-col gap-2 text-left md:col-span-1 ${errors.email ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left md:col-span-1 md:max-lg:w-[19.5rem] ${errors.email ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-email' className='body-m'>
               Email<span className='text-white'>*</span>
@@ -149,7 +149,7 @@ export function RoundTableRegistrationSection(): ReactElement {
               type='email'
               autoComplete='email'
               placeholder='example@company.ru'
-              className='form-input'
+              className='form-input md:max-lg:w-[19.5rem]'
               aria-invalid={errors.email ? true : undefined}
               aria-describedby={errors.email ? 'reg-email-error' : undefined}
               {...register('email', registrationEmailRules)}

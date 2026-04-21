@@ -7,7 +7,6 @@ export type RoundtableRegistration = {
 }
 
 export type LectureRegistration = RoundtableRegistration & {
-  /** Необязательное поле; пустая строка допустима */
   questions?: string
 }
 

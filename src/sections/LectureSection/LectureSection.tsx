@@ -66,7 +66,7 @@ export function LectureSection() {
   return (
     <section
       id='lecture'
-      className='relative mt-60 pb-50'
+      className='relative mt-60 pb-50 md:max-lg:mt-[9.375rem] md:max-lg:!pb-[40.625rem]'
       aria-labelledby='lecture-program-heading'
     >
       <div
@@ -82,20 +82,20 @@ export function LectureSection() {
           aria-hidden
         />
       </div>
-      <div className='relative z-10 grid min-w-0 gap-6 lg:grid-cols-3'>
+      <div className='relative z-10 grid min-w-0 gap-6 md:max-lg:gap-16 lg:grid-cols-3'>
         <div className='relative z-0 flex min-w-0 flex-col gap-6 lg:col-span-2'>
           <h2 id='lecture-program-heading' className='h2'>
             Программа лектория
           </h2>
-          <div className='flex flex-col gap-12'>
+          <div className='flex flex-col gap-12 md:max-lg:gap-5'>
             <p className='body-l w-[32rem]'>
               Выберите интересующие вас темы и составьте индивидуальное расписание. Регистрация доступна на каждое событие отдельно.
             </p>
-            <div className='flex flex-col gap-12'>
+            <div className='flex flex-col gap-12 md:max-lg:gap-5'>
               {lectureProgramDays.map((day) => (
                 <details
                   key={day.date}
-                  className='group flex flex-col gap-4 blue-gradient'
+                  className='group flex flex-col gap-4 md:max-lg:gap-3 blue-gradient'
                 >
                   <summary className='flex cursor-pointer list-none items-center gap-3 h3 marker:content-none h-8 [&::-webkit-details-marker]:hidden'>
                     <p>{day.date}</p>
@@ -127,7 +127,7 @@ export function LectureSection() {
                               alt={card.speaker.name || 'Фото спикера'}
                               width={120}
                               height={160}
-                              className='relative z-10 h-[160px] w-[120px] shrink-0 rounded-lg object-cover object-top'
+                              className='relative z-10 h-[160px] w-[120px] shrink-0 rounded-lg object-cover object-top md:max-lg:h-[7.75rem] md:max-lg:w-[5.8125rem]'
                             />
                             <div className='relative z-10 flex min-w-0 flex-1 flex-col gap-2'>
                               <p className='lecture-time w-fit'>{card.time}</p>
@@ -161,18 +161,18 @@ export function LectureSection() {
           </div>
         </div>
 
-        <div className='relative z-20 flex min-w-0 flex-col gap-12'>
-          <h2 id='lecture-registration-heading' className='h2 h2 text-center'>
-            Регистрация <br /> на лекторий
+        <div className='relative z-20 flex min-w-0 flex-col gap-12 items-center md:max-lg:items-normal'>
+          <h2 id='lecture-registration-heading' className='h2 h2 text-center w-72 md:max-lg:w-auto'>
+            Регистрация на лекторий
           </h2>
           <form
-            className='relative isolate z-0 tiles-nohover gap-12 flex flex-col h-[60.19rem]'
+            className='relative w-full isolate z-0 tiles-nohover gap-12 flex flex-col h-[60.19rem] md:max-lg:h-auto'
             onSubmit={handleSubmit(onLectureSubmit)}
             noValidate
             aria-labelledby='lecture-registration-heading'
           >
-            <div className='flex flex-col gap-6'>
-              <div className='flex flex-col gap-6'>
+            <div className='flex flex-col gap-6 md:max-lg:gap-[1.875rem]'>
+              <div className='grid grid-cols-1 gap-6 md:max-lg:grid-cols-2 md:max-lg:gap-[1.625rem]'>
                 <div
                   className={`relative flex flex-col gap-2 text-left ${errors.fullName ? 'z-[500]' : ''}`}
                 >
@@ -246,7 +246,7 @@ export function LectureSection() {
                   <FormFieldError id='lect-position-error' message={errors.position?.message} />
                 </div>
                 <div
-                  className={`relative flex flex-col gap-2 text-left md:col-span-1 ${errors.email ? 'z-[500]' : ''}`}
+                  className={`relative flex flex-col gap-2 text-left md:max-lg:col-span-1 ${errors.email ? 'z-[500]' : ''}`}
                 >
                   <label htmlFor='lect-email' className='body-m'>
                     Email<span className='text-white'>*</span>
@@ -264,7 +264,7 @@ export function LectureSection() {
                   <FormFieldError id='lect-email-error' message={errors.email?.message} />
                 </div>
                 <div
-                  className={`relative flex flex-col gap-2 text-left md:col-span-2 ${errors.questions ? 'z-[500]' : ''}`}
+                  className={`relative flex flex-col gap-2 text-left md:max-lg:col-span-2 ${errors.questions ? 'z-[500]' : ''}`}
                 >
                   <label htmlFor='lect-questions' className='body-m'>
                     Ваши вопросы к обсуждению
@@ -273,7 +273,7 @@ export function LectureSection() {
                     id='lect-questions'
                     rows={5}
                     placeholder='Какие темы вам особенно интересны?'
-                    className='form-input resize-none h-40'
+                    className='form-input resize-none h-40 md:max-lg:h-[5.3125rem]'
                     aria-invalid={errors.questions ? true : undefined}
                     aria-describedby={errors.questions ? 'lect-questions-error' : undefined}
                     {...register('questions', lectureQuestionsRules)}

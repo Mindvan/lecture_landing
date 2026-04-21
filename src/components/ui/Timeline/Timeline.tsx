@@ -2,7 +2,7 @@ import { Children, cloneElement, isValidElement, useId } from 'react'
 import type { CSSProperties, ReactElement, ReactNode } from 'react'
 
 const timelineShellStyle = {
-  ['--tl-item-gap']: '3rem',
+  ['--tl-item-gap']: '1.5rem',
   ['--tl-node-pt']: '1.5rem',
 } as CSSProperties
 
@@ -74,7 +74,7 @@ export function Timeline({
 
   return (
     <div
-      className={`flex flex-col gap-12 ${className}`}
+      className={`flex flex-col gap-12 md:max-lg:gap-6 md:max-lg:[--tl-item-gap:1.5rem] ${className}`}
       style={timelineShellStyle}
     >
       {items.map((child, i) => {
@@ -108,7 +108,7 @@ export function TimelineItem({
     : undefined
 
   return (
-    <div className='timeline-item relative flex gap-12'>
+    <div className='timeline-item relative flex gap-12 md:max-lg:gap-[2.125rem]'>
       <div className='relative flex w-12 shrink-0 flex-col items-center self-stretch pt-[var(--tl-node-pt,1.5rem)]'>
         <TimelineNode />
         {showConnector ? (
@@ -119,7 +119,7 @@ export function TimelineItem({
           />
         ) : null}
       </div>
-      <div className='relative z-[1] flex min-w-0 flex-1 flex-col gap-4'>
+      <div className='relative z-[1] flex min-w-0 flex-1 flex-col gap-4 md:max-lg:gap-2'>
         {children}
       </div>
     </div>

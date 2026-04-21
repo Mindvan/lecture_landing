@@ -8,13 +8,13 @@ export function HeroSection() {
 
   return (
     <section id='about' className='' aria-labelledby='hero-heading'>
-      <div className='relative z-10 max-w-[54rem] flex flex-col gap-6'>
+      <div className='relative z-10 max-w-[54rem] flex flex-col gap-6 md:max-lg:gap-[27px]'>
         <p className='flex flex-wrap items-center text-lg gap-[0.7rem]'>
-          <span>{showcase.title}</span>
+          <span className='body-l'>{showcase.title}</span>
           <MetaDivider />
-          <span>{showcase.data}</span>
+          <span className='body-l'>{showcase.data}</span>
           <MetaDivider />
-          <span>{showcase.location}</span>
+          <span className='body-l'>{showcase.location}</span>
         </p>
 
         <h1 id='hero-heading' className='h1'>
@@ -25,11 +25,10 @@ export function HeroSection() {
         </h1>
 
         <div className='flex flex-col'>
-          <p className='h3 mb-2 whitespace-pre-line'>{showcase.description.primary}</p>
-          <p className='h4'>{showcase.description.secondary}</p>
+          <p className='h3 mb-2 w-[40.31rem] lg:w-[50.00rem]'>{showcase.description.primary}</p>
+          <p className='body-m w-100 lg:w-[50.00rem]'>{showcase.description.secondary}</p>
         </div>
-        <div>
-          <div className='flex flex-col gap-6 flex-row'>
+        <div className='flex flex-col gap-6 flex-row'>
             <a href='#round-table' className='btn-primary'>
               Участвовать в круглом столе
             </a>
@@ -37,7 +36,6 @@ export function HeroSection() {
               Зарегистрироваться на лекторий
             </a>
           </div>
-        </div>
       </div>
     </section>
   )

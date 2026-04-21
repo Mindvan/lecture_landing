@@ -18,6 +18,8 @@ export function SuccessSubmitModal({ open, onClose, title, description }: Succes
     const body = document.body
     const prevHtmlOverflow = html.style.overflow
     const prevBodyOverflow = body.style.overflow
+    html.style.overflow = 'hidden'
+    body.style.overflow = 'hidden'
     const t = window.setTimeout(() => closeBtnRef.current?.focus(), 0)
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -25,6 +27,8 @@ export function SuccessSubmitModal({ open, onClose, title, description }: Succes
     window.addEventListener('keydown', onKey)
     return () => {
       window.clearTimeout(t)
+      html.style.overflow = prevHtmlOverflow
+      body.style.overflow = prevBodyOverflow
       window.removeEventListener('keydown', onKey)
     }
   }, [open, onClose])
