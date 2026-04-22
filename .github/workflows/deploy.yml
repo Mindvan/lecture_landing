@@ -32,12 +32,13 @@ jobs:
 
       - name: Build
         env:
-          # IMPORTANT: replace "lecture_landing" if your repo name differs
           GITHUB_PAGES_BASE: /lecture_landing/
         run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
