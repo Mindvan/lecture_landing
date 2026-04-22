@@ -1,14 +1,14 @@
 export const footerAboutLinks = [
-  { label: 'НТЦ ПРОТЕЙ', href: 'https://www.ntcprotei.ru/' },
-  { label: 'ПРОТЕЙ Технологии', href: 'https://www.protei.ru/' },
+  { label: 'НТЦ ПРОТЕЙ', href: 'https://www.protei.ru/' },
+  { label: 'ПРОТЕЙ Технологии', href: 'https://tl.protei.ru/' },
 ] as const
 
 export const footerSocialLinks = [
-  { label: 'Telegram', href: 'https://t.me/proteigroup' },
-  { label: 'ВКонтакте', href: 'https://vk.com/proteigroup' },
-  { label: 'MAX', href: '#' },
-  { label: 'YouTube', href: '#' },
-  { label: 'Rutube', href: '#' },
+  { label: 'Telegram', href: 'https://t.me/protei_it' },
+  { label: 'ВКонтакте', href: 'https://vk.com/protei_it' },
+  { label: 'MAX', href: 'https://max.ru/' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@proteitl' },
+  { label: 'Rutube', href: 'https://rutube.ru/channel/28348926/' },
 ] as const
 
 export const footerContacts = [
