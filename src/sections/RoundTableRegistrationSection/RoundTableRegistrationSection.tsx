@@ -48,10 +48,10 @@ export function RoundTableRegistrationSection(): ReactElement {
   return (
     <section
       id='registration'
-      className='mt-60 flex flex-col items-center gap-16 md:max-lg:mt-[11.375rem] md:max-lg:gap-12'
+      className='mt-60 max-md:mt-[7.375rem] flex flex-col items-center gap-16 max-md:gap-6 md:max-lg:mt-[11.375rem] md:max-lg:gap-12'
       aria-labelledby='registration-heading'
     >
-      <div className='mx-auto flex max-w-[42rem] flex-col items-center gap-6 text-center'>
+      <div className='mx-auto flex max-w-[42rem] flex-col items-center gap-6 max-md:gap-2 text-center'>
         <h2 id='registration-heading' className='h2'>
           Регистрация на круглый стол
         </h2>
@@ -61,13 +61,13 @@ export function RoundTableRegistrationSection(): ReactElement {
       </div>
 
       <form
-        className='tiles-nohover relative flex flex-col gap-[3.9rem] h-[30.75rem] md:max-lg:h-auto md:max-lg:gap-[3.125rem]'
+        className='tiles-nohover relative flex flex-col gap-[3.9rem] max-md:gap-6 h-[30.75rem] max-md:h-auto max-md:pb-3 md:max-lg:h-auto md:max-lg:gap-[3.125rem]'
         onSubmit={handleSubmit(onRoundtableSubmit)}
         noValidate
       >
-        <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+        <div className='grid grid-cols-1 gap-6 max-md:gap-[0.9375rem] md:grid-cols-2'>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.fullName ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 max-md:w-auto md:max-lg:w-[17.75rem] ${errors.fullName ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-fullname' className='body-m'>
               ФИО<span className='text-white'>*</span>
@@ -77,7 +77,7 @@ export function RoundTableRegistrationSection(): ReactElement {
               type='text'
               autoComplete='name'
               placeholder='Иванов Иван Иванович'
-              className='form-input'
+              className='form-input max-md:h-9'
               aria-invalid={errors.fullName ? true : undefined}
               aria-describedby={errors.fullName ? 'reg-fullname-error' : undefined}
               {...register('fullName', registrationFullNameRules)}
@@ -85,7 +85,7 @@ export function RoundTableRegistrationSection(): ReactElement {
             <FormFieldError id='reg-fullname-error' message={errors.fullName?.message} />
           </div>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.phone ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 max-md:w-auto md:max-lg:w-[17.75rem] ${errors.phone ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-phone' className='body-m'>
               Телефон<span className='text-white'>*</span>
@@ -95,7 +95,7 @@ export function RoundTableRegistrationSection(): ReactElement {
               type='tel'
               autoComplete='tel'
               placeholder='+7 (987) 654-32-10'
-              className='form-input'
+              className='form-input max-md:h-9'
               aria-invalid={errors.phone ? true : undefined}
               aria-describedby={errors.phone ? 'reg-phone-error' : undefined}
               {...register('phone', registrationPhoneRules)}
@@ -103,7 +103,7 @@ export function RoundTableRegistrationSection(): ReactElement {
             <FormFieldError id='reg-phone-error' message={errors.phone?.message} />
           </div>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.company ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 max-md:w-auto md:max-lg:w-[17.75rem] ${errors.company ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-company' className='body-m'>
               Компания<span className='text-white'>*</span>
@@ -113,7 +113,7 @@ export function RoundTableRegistrationSection(): ReactElement {
               type='text'
               autoComplete='organization'
               placeholder='Название компании'
-              className='form-input'
+              className='form-input max-md:h-9'
               aria-invalid={errors.company ? true : undefined}
               aria-describedby={errors.company ? 'reg-company-error' : undefined}
               {...register('company', registrationCompanyRules)}
@@ -121,7 +121,7 @@ export function RoundTableRegistrationSection(): ReactElement {
             <FormFieldError id='reg-company-error' message={errors.company?.message} />
           </div>
           <div
-            className={`relative flex flex-col gap-2 text-left w-78 md:max-lg:w-[17.75rem] ${errors.position ? 'z-[500]' : ''}`}
+            className={`relative flex flex-col gap-2 text-left w-78 max-md:w-auto md:max-lg:w-[17.75rem] ${errors.position ? 'z-[500]' : ''}`}
           >
             <label htmlFor='reg-position' className='body-m'>
               Должность<span className='text-white'>*</span>
@@ -131,7 +131,7 @@ export function RoundTableRegistrationSection(): ReactElement {
               type='text'
               autoComplete='organization-title'
               placeholder='Руководитель отдела…'
-              className='form-input'
+              className='form-input max-md:h-9'
               aria-invalid={errors.position ? true : undefined}
               aria-describedby={errors.position ? 'reg-position-error' : undefined}
               {...register('position', registrationPositionRules)}
@@ -149,7 +149,7 @@ export function RoundTableRegistrationSection(): ReactElement {
               type='email'
               autoComplete='email'
               placeholder='example@company.ru'
-              className='form-input md:max-lg:w-[19.5rem]'
+              className='form-input max-md:h-9 md:max-lg:w-[19.5rem]'
               aria-invalid={errors.email ? true : undefined}
               aria-describedby={errors.email ? 'reg-email-error' : undefined}
               {...register('email', registrationEmailRules)}

@@ -137,6 +137,10 @@
   transition:
     box-shadow 200ms ease;
 
+  @media (max-width: 767px) {
+    height: 36px;
+  }
+
   &::placeholder {
     color: var(--color-placeholder);
   }

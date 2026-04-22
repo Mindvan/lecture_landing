@@ -71,7 +71,7 @@ export function Timeline({
 
   return (
     <div
-      className={`flex flex-col [--tl-node-pt:1.5rem] max-md:[--tl-node-pt:0] max-md:mb-0 max-md:gap-[24px] max-md:[--tl-item-gap:24px] gap-12 md:max-lg:gap-6 md:max-lg:[--tl-item-gap:1.5rem] lg:gap-[2.875rem] lg:[--tl-item-gap:2.875rem] ${className}`}
+      className={`flex flex-col [--tl-node-pt:1.5rem] max-md:[--tl-node-pt:0] max-md:mb-0 max-md:gap-[24px] max-md:[--tl-item-gap:24px] gap-12 md:max-lg:gap-[21px] md:max-lg:[--tl-item-gap:21px] lg:gap-[2.875rem] lg:[--tl-item-gap:2.875rem] ${className}`}
     >
       {items.map((child, i) => {
         if (!isValidElement(child)) return child

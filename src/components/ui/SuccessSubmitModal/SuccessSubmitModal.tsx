@@ -49,7 +49,7 @@ export function SuccessSubmitModal({ open, onClose, title, description }: Succes
         role='dialog'
         aria-modal='true'
         aria-labelledby={titleId}
-        className='tiles-nohover relative z-10 w-full max-w-[26rem] px-8 py-10 text-center text-white shadow-[0_0_40px_rgba(114,199,252,0.12)]'
+        className='tiles-nohover relative z-10 w-full h-auto max-w-[26rem] px-8 py-10 text-center text-white shadow-[0_0_40px_rgba(114,199,252,0.12)]'
       >
         <div
           className='mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-solid border-blue/35'

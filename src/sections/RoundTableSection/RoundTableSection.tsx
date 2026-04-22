@@ -31,8 +31,8 @@ export function RoundTableSection() {
           aria-hidden
         />
       </div>
-      <div className='btn-secondary pointer-events-none absolute right-0 top-[-2px] z-10 h-auto w-90 md:max-lg:w-[13.125rem] md:max-lg:px-4 md:max-lg:py-3'>
-        <p className='body-m whitespace-pre-line'>
+      <div className='btn-secondary pointer-events-none absolute right-0 top-[-2px] max-md:top-[-18px] z-10 h-auto w-90 max-md:w-auto max-md:px-4 max-md:py-2 md:max-lg:w-[13.125rem] md:max-lg:px-4 md:max-lg:py-3'>
+        <p className='body-m whitespace-pre-line max-md:text-left'>
           Дискуссионный формат <br /> с экспертами отрасли
         </p>
       </div>
@@ -44,7 +44,7 @@ export function RoundTableSection() {
         <p className='body-l max-md:mt-1 md:max-lg:mt-[1.25rem] lg:mt-4'>Ключевые векторы дискуссии</p>
       </div>
 
-      <div className='relative z-10 mt-6 flex max-md:right-6 max-md:gap-[24px] flex-col gap-12 md:max-lg:gap-[0.125rem] lg:gap-[2.9rem]'>
+      <div className='relative z-10 mt-6 md:max-lg:mt-[20px] flex max-md:right-6 max-md:gap-[24px] flex-col gap-12 md:max-lg:gap-[2px] lg:gap-[2.9rem]'>
         {roundtableProgramSections.map((steps, sectionIndex) => {
           const sectionBadge = steps[0]?.badge
           const startIndex =

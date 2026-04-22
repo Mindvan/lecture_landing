@@ -43,7 +43,7 @@ export function ErrorSubmitModal({ open, onClose, title, description }: ErrorSub
         role='alertdialog'
         aria-modal='true'
         aria-labelledby={titleId}
-        className='tiles-nohover relative z-10 w-full max-w-[26rem] border border-solid border-[#ff6600]/59 px-8 py-10 text-center text-white'
+        className='tiles-nohover relative z-10 w-full max-w-[26rem] h-auto border border-solid border-[#ff6600]/59 px-8 py-10 text-center text-white'
       >
         <div
           className='mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-solid border-[#ff6600]/50'
