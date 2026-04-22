@@ -44,7 +44,7 @@ export function IndustrySection() {
           {industryChoiceItems.map((item) => (
             <article
               key={item.title}
-              className='tiles flex h-full flex-col gap-2 max-md:pb-3 md:max-lg:pr-3 lg:gap-[0.44rem] max-h-64'
+              className='tiles flex h-full flex-col gap-2 max-md:pb-3 md:max-lg:pr-3 lg:gap-[0.44rem] [@media(min-width:800px)_and_(max-width:920px)]:h-[14.4375em] [@media(min-width:1024px)_and_(max-width:1240px)]:h-[20.5em]'
             >
               <div className='square-icons'>
                 <img

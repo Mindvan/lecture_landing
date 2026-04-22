@@ -34,20 +34,6 @@ export function SiteHeader() {
     }
   }, [mobileNavOpen])
 
-  useEffect(() => {
-    if (!mobileNavOpen) return
-    const html = document.documentElement
-    const body = document.body
-    const prevHtmlOverflow = html.style.overflow
-    const prevBodyOverflow = body.style.overflow
-    html.style.overflow = 'hidden'
-    body.style.overflow = 'hidden'
-    return () => {
-      html.style.overflow = prevHtmlOverflow
-      body.style.overflow = prevBodyOverflow
-    }
-  }, [mobileNavOpen])
-
   return (
     <header ref={rootRef} className='relative flex w-full flex-col'>
       <div className='flex min-h-0 flex-1 flex-row items-center justify-between md:items-stretch'>
@@ -107,35 +93,27 @@ export function SiteHeader() {
       </div>
 
       {mobileNavOpen ? (
-        <>
-          <button
-            type='button'
-            className='fixed inset-0 z-40 cursor-default border-0 bg-blue-dark/72 backdrop-blur-[3px] md:hidden'
-            aria-label='Закрыть меню'
-            onClick={() => setMobileNavOpen(false)}
-          />
-          <div
-            id={menuId}
-            className='btn-secondary absolute right-0 top-full z-50 mt-2 h-[108px] w-[133px] rounded-[8px] p-2 text-right text-[14px] font-normal md:hidden'
-            role='menu'
-            aria-label='Меню'
-          >
-            <ul className='flex flex-col gap-2'>
-              {navItems.map((item) => (
-                <li key={item.href} role='none'>
-                  <a
-                    role='menuitem'
-                    href={item.href}
-                    className='block rounded-md p-0 text-white text-[14px] font-normal transition-colors hover:bg-white/5 hover:text-blue'
-                    onClick={() => setMobileNavOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
+        <div
+          id={menuId}
+          className='btn-secondary absolute right-0 top-full z-50 mt-2 h-[108px] w-[133px] rounded-[8px] p-2 text-right text-[14px] font-normal md:hidden'
+          role='menu'
+          aria-label='Меню'
+        >
+          <ul className='flex flex-col gap-2'>
+            {navItems.map((item) => (
+              <li key={item.href} role='none'>
+                <a
+                  role='menuitem'
+                  href={item.href}
+                  className='block rounded-md p-0 text-white text-[14px] font-normal transition-colors hover:bg-white/5 hover:text-blue'
+                  onClick={() => setMobileNavOpen(false)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : null}
     </header>
   )

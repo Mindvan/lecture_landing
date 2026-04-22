@@ -20,7 +20,10 @@ export function HeroSection() {
           <span className='body-l'>{showcase.location}</span>
         </p>
 
-        <h1 id='hero-heading' className='h1 max-md:flex max-md:flex-col max-md:gap-[0.125rem]'>
+        <h1
+          id='hero-heading'
+          className='h1 max-md:text-[clamp(24px,calc(4.917px+5.089vw),44px)] max-md:flex max-md:flex-col max-md:gap-[0.125rem]'
+        >
           <span className='block'>{headlineLead}</span>
           <span className='block'>
             или <span className='text-[#2ba1c7]'>{heroAccentWord}</span>

@@ -17,7 +17,7 @@ export function FooterSection() {
             </a>
           </div>
 
-          <div className='flex gap-[7.19rem] max-md:flex-col max-md:relative max-md:left-[3px] max-md:gap-[21px] md:max-lg:gap-20'>
+          <div className='flex gap-[7.19rem] max-md:flex-col [@media(min-width:640px)_and_(max-width:767px)]:flex-row max-md:relative max-md:left-[3px] max-md:gap-[21px] md:max-lg:gap-20'>
             <nav
               className='flex w-[173px] shrink-0 flex-col gap-4 max-md:gap-2 md:max-lg:gap-2'
               aria-labelledby='footer-about-heading'

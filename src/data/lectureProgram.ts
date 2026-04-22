@@ -1,6 +1,6 @@
 import photoRomanD from '../assets/roman_d.jpg'
 import photoPavelF from '../assets/pavel_f.jpg'
-import photoLectorPlaceholder from '../assets/lector-unknown.jpg'
+import photoAlexander from '../assets/alexander.jpg'
 import type { LectureProgramCard } from '../types/lecture'
 
 const april7LectureCards: readonly LectureProgramCard[] = [
@@ -59,7 +59,7 @@ const april8LectureCards: readonly LectureProgramCard[] = [
       position: 'Руководитель направления частных сетей',
       company: 'НТЦ ПРОТЕЙ',
     },
-    photo: photoLectorPlaceholder,
+    photo: photoAlexander,
   },
   {
     time: '12:00–13:00',
@@ -91,7 +91,7 @@ const april8LectureCards: readonly LectureProgramCard[] = [
       position: 'Руководитель проектного офиса',
       company: 'ПРОТЕЙ СТ',
     },
-    photo: photoLectorPlaceholder,
+    photo: photoAlexander,
   },
 ]
 
@@ -105,7 +105,7 @@ const april9LectureCards: readonly LectureProgramCard[] = [
       position: 'Менеджер продуктов',
       company: 'ПРОТЕЙ Технологии',
     },
-    photo: photoLectorPlaceholder,
+    photo: photoAlexander,
   },
   {
     time: '12:00–13:00',
@@ -116,19 +116,19 @@ const april9LectureCards: readonly LectureProgramCard[] = [
       position: 'Пресейл-менеджер',
       company: 'НТЦ ПРОТЕЙ',
     },
-    photo: photoLectorPlaceholder,
+    photo: photoAlexander,
   },
   {
     time: '12:00–13:00',
     title: `Неизвестно, будет ли`,
     speaker: { name: '123', position: '', company: '123' },
-    photo: photoLectorPlaceholder,
+    photo: photoAlexander,
   },
   {
     time: '16:00–17:00',
     title: `Неизвестно, будет ли`,
     speaker: { name: '123', position: '', company: '123' },
-    photo: photoLectorPlaceholder,
+    photo: photoAlexander,
   },
 ]
 
