@@ -82,3 +82,16 @@
     --tracking-h3: 0.009em;
   }
 }
+
+@media (max-width: 375px) {
+  :root {
+    --text-h3--line-height: 125%;
+    --text-body-m--line-height: 125%;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-body-l--line-height: 125%;
+  }
+}

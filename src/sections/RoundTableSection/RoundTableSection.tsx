@@ -3,10 +3,19 @@ import { Timeline, TimelineItem } from '../../components/ui/Timeline/Timeline'
 import { roundtableProgramSections } from '../../data/roundtable'
 
 export function RoundTableSection() {
+  const timelineStartIndices = roundtableProgramSections.reduce<number[]>(
+    (acc, steps) => {
+      const prev = acc.length ? acc[acc.length - 1]! : 0
+      acc.push(prev + steps.length)
+      return acc
+    },
+    [],
+  )
+
   return (
     <section
       id='round-table'
-      className='mt-63 relative flex flex-col gap-10 md:max-lg:mt-[11.25rem] md:max-lg:gap-[1.44rem]'
+      className='relative mt-63 flex max-md:mt-[8.4375rem] max-md:gap-0 flex-col gap-10 md:max-lg:mt-[11.25rem] md:max-lg:gap-[1.44rem]'
       aria-labelledby='roundtable-program-heading'
     >
       <div
@@ -29,15 +38,17 @@ export function RoundTableSection() {
       </div>
 
       <div className='relative z-10 flex flex-col gap-[0.38rem]'>
-        <h2 id='roundtable-program-heading' className='h2 md:max-lg:w-[18.75rem]'>
+        <h2 id='roundtable-program-heading' className='h1 md:h2 md:max-lg:w-[18.75rem] max-md:w-[12.125rem]'>
           Программа круглого стола
         </h2>
-        <p className='body-l mt-4 md:max-lg:mt-[1.25rem]'>Ключевые векторы дискуссии</p>
+        <p className='body-l max-md:mt-1 md:max-lg:mt-[1.25rem] lg:mt-4'>Ключевые векторы дискуссии</p>
       </div>
 
-      <div className='relative z-10 flex flex-col gap-12 mt-6 md:max-lg:gap-[0.125rem]'>
+      <div className='relative z-10 mt-6 flex max-md:right-6 max-md:gap-[1.3125rem] flex-col gap-12 md:max-lg:gap-[0.125rem] lg:gap-[2.9rem]'>
         {roundtableProgramSections.map((steps, sectionIndex) => {
           const sectionBadge = steps[0]?.badge
+          const startIndex =
+            sectionIndex === 0 ? 0 : timelineStartIndices[sectionIndex - 1] ?? 0
           const timelineMb =
             sectionBadge === 'ПРОИЗВОДИТЕЛИ'
               ? 'mb-6'
@@ -56,14 +67,15 @@ export function RoundTableSection() {
               key={steps[0]?.title ?? steps.length}
               className={timelineMb}
               bridgeTailDistance={bridgeTailDistance}
+              startIndex={startIndex}
             >
               {steps.map((step) => (
                 <TimelineItem key={step.title}>
-                  <p className='program-group caption w-fit uppercase h-6'>
+                  <p className='program-group caption w-fit uppercase'>
                     {step.badge}
                   </p>
                   <h3 className='h3'>{step.title}</h3>
-                  <p className='body-m w-full whitespace-pre-line md:max-lg:w-[36.875rem] md:max-lg:leading-[1.2] lg:w-[685px]'>
+                  <p className='body-m w-full max-md:w-[16.8125rem] max-md:whitespace-normal md:whitespace-pre-line md:max-lg:w-[36.875rem] md:max-lg:leading-[1.2] lg:w-[685px]'>
                     {step.body}
                   </p>
                 </TimelineItem>

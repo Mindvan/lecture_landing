@@ -1,15 +1,11 @@
 import { Children, cloneElement, isValidElement, useId } from 'react'
-import type { CSSProperties, ReactElement, ReactNode } from 'react'
-
-const timelineShellStyle = {
-  ['--tl-item-gap']: '1.5rem',
-  ['--tl-node-pt']: '1.5rem',
-} as CSSProperties
+import type { ReactElement, ReactNode } from 'react'
 
 type TimelineProps = {
   children: ReactNode
   className?: string
   bridgeTailDistance?: string
+  startIndex?: number
 }
 
 function connectorBottom(
@@ -69,13 +65,13 @@ export function Timeline({
   children,
   className = '',
   bridgeTailDistance,
+  startIndex = 0,
 }: TimelineProps) {
   const items = Children.toArray(children).filter((c) => isValidElement(c))
 
   return (
     <div
-      className={`flex flex-col gap-12 md:max-lg:gap-6 md:max-lg:[--tl-item-gap:1.5rem] ${className}`}
-      style={timelineShellStyle}
+      className={`flex flex-col [--tl-node-pt:1.5rem] max-md:[--tl-node-pt:0] max-md:mb-0 max-md:gap-[1.25rem] max-md:[--tl-item-gap:1.25rem] gap-12 md:max-lg:gap-6 md:max-lg:[--tl-item-gap:1.5rem] lg:gap-[2.875rem] lg:[--tl-item-gap:2.875rem] ${className}`}
     >
       {items.map((child, i) => {
         if (!isValidElement(child)) return child
@@ -84,6 +80,7 @@ export function Timeline({
         return cloneElement(child as ReactElement<TimelineItemProps>, {
           isLastInTimeline: isLast,
           tailBridgeDistance: tail,
+          itemIndex: i + startIndex,
         })
       })}
     </div>
@@ -94,32 +91,69 @@ export type TimelineItemProps = {
   children: ReactNode
   isLastInTimeline?: boolean
   tailBridgeDistance?: string
+  itemIndex?: number
 }
 
 export function TimelineItem({
   children,
   isLastInTimeline = false,
   tailBridgeDistance,
+  itemIndex,
 }: TimelineItemProps) {
   const showConnector =
     !isLastInTimeline || tailBridgeDistance !== undefined
   const bottom = showConnector
     ? connectorBottom(isLastInTimeline, tailBridgeDistance)
     : undefined
+  const mobileNodeTopPx =
+    itemIndex === 1
+      ? 15
+      : itemIndex === 2
+        ? 30
+        : itemIndex === 3
+          ? 45
+          : itemIndex === 4
+            ? 50
+            : itemIndex === 5
+              ? 65
+              : 0
+  const mobileNodeTop = `${mobileNodeTopPx}px`
+  const mobileConnectorTop = `${48 + mobileNodeTopPx}px`
+  const mobileConnectorHeight =
+    itemIndex === 3 ? 'calc(100% - 21px)' : 'calc(100% - 12px)'
 
   return (
-    <div className='timeline-item relative flex gap-12 md:max-lg:gap-[2.125rem]'>
-      <div className='relative flex w-12 shrink-0 flex-col items-center self-stretch pt-[var(--tl-node-pt,1.5rem)]'>
-        <TimelineNode />
+    <div className='timeline-item relative flex max-md:gap-0 gap-12 md:max-lg:gap-[2.125rem]'>
+      <div
+        aria-hidden
+        className='relative z-0 flex w-12 shrink-0 flex-col items-center self-stretch pt-[var(--tl-node-pt,1.5rem)] max-md:pointer-events-none max-md:absolute max-md:inset-y-0 max-md:left-0 max-md:w-12 max-md:self-auto'
+      >
+        <div
+          aria-hidden
+          className='max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2 max-md:z-[1] max-md:top-[var(--tl-mobile-node-top)]'
+          style={
+            {
+              '--tl-mobile-node-top': mobileNodeTop,
+            } as React.CSSProperties
+          }
+        >
+          <TimelineNode />
+        </div>
         {showConnector ? (
           <div
             aria-hidden
-            className='pointer-events-none absolute left-1/2 top-[calc(var(--tl-node-pt,1.5rem)+48px)] z-0 w-px -translate-x-1/2 bg-[#75C9EA]'
-            style={{ bottom }}
+            className='pointer-events-none absolute left-1/2 top-[calc(var(--tl-node-pt,1.5rem)+48px)] z-0 w-px -translate-x-1/2 bg-[#75C9EA] max-md:top-[var(--tl-mobile-connector-top)] max-md:h-[var(--tl-mobile-connector-h)] max-md:bottom-auto'
+            style={
+              {
+                bottom,
+                '--tl-mobile-connector-top': mobileConnectorTop,
+                '--tl-mobile-connector-h': mobileConnectorHeight,
+              } as React.CSSProperties
+            }
           />
         ) : null}
       </div>
-      <div className='relative z-[1] flex min-w-0 flex-1 flex-col gap-4 md:max-lg:gap-2'>
+      <div className='relative z-[1] flex min-w-0 flex-1 flex-col max-md:pl-18 max-md:gap-2 gap-4 md:max-lg:gap-2'>
         {children}
       </div>
     </div>

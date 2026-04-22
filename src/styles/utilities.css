@@ -17,6 +17,10 @@
   line-height: var(--text-h3--line-height);
   font-weight: var(--font-weight-h3);
   letter-spacing: var(--tracking-h3);
+
+  @media (max-width: 375px) {
+    line-height: 125%;
+  }
 }
 
 @utility leacture-title {
@@ -63,6 +67,10 @@
     box-shadow: 0 0 16px 0 rgba(117, 201, 234, 0.5);
   }
 
+  @media (max-width: 767px) {
+    height: 2.4375rem;
+  }
+
   @media (width >= 768px) and (max-width: 1023px) {
     height: 44px;
   }
@@ -70,6 +78,10 @@
 
 @utility btn-secondary {
   @apply body-l;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: var(--color-white);
   padding: 12px 24px;
   cursor: pointer;
@@ -110,6 +122,10 @@
 
   @media (width >= 768px) and (max-width: 1023px) {
     height: 44px;
+  }
+
+  @media (max-width: 767px) {
+    height: 2.4375rem;
   }
 }
 
@@ -164,7 +180,8 @@
 
 @utility tiles {
   border-radius: 8px;
-  padding: 48px;
+  padding: 1rem;
+  height: 9.5625rem;
   border: 1px solid transparent;
   background-image:
     linear-gradient(
@@ -187,7 +204,13 @@
   }
 
   @media (width >= 768px) and (max-width: 1023px) {
-    padding: 24px;
+    padding: 1.5rem;
+    height: auto;
+  }
+
+  @media (width >= 1024px) {
+    padding: 3rem;
+    height: auto;
   }
 }
 
@@ -291,7 +314,17 @@
 @utility program-group {
   border: 1px solid var(--blue);
   border-radius: 8px;
-  padding: 2px 16px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem 0.5rem;
+  height: 0.875rem;
+
+  @media (width >= 768px) {
+    padding: 2px 16px;
+    height: auto;
+  }
 }
 
 @utility validation {
@@ -305,4 +338,9 @@
   @apply caption;
   line-height: 1.28;
   letter-spacing: var(--tracking-m02);
+
+  @media (width < 768px) {
+    height: auto;
+    padding: 2px 16px;
+  }
 }

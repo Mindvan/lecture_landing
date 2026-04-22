@@ -4,21 +4,25 @@ import { participationFormats } from '../../data/formats'
 
 export function FormatsSection() {
   return (
-    <section id='formats' className='mt-36 md:max-lg:mt-45' aria-labelledby='formats-heading'>
-      <div className='mx-auto mb-12 flex flex-col gap-6 items-center text-center'>
+    <section
+      id='formats'
+      className='max-md:mt-[7.5rem] mt-36 md:max-lg:mt-45'
+      aria-labelledby='formats-heading'
+    >
+      <div className='mx-auto mb-12 flex max-md:mb-8 max-md:gap-2 flex-col gap-6 items-center text-center'>
         <h2 id='formats-heading' className='h2'>
           Форматы участия
         </h2>
         <p className='body-l'>Выберите подходящий формат взаимодействия</p>
       </div>
 
-      <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:max-lg:gap-4'>
+      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
         {participationFormats.map((card) => (
           <article
             key={card.title}
-            className='tiles flex h-full flex-col gap-12 justify-between md:max-lg:h-[33.69rem]'
+            className='tiles flex h-full flex-col gap-6 lg:gap-[2.875rem] justify-between md:max-lg:h-[33.69rem]'
           >
-            <div className='flex flex-col gap-3'>
+            <div className='flex max-md:gap-[0.6875rem] flex-col gap-3'>
               <div className='square-icons'>
                 <img
                   src={card.icon}
@@ -39,7 +43,7 @@ export function FormatsSection() {
                 {typeof card.description === 'string' ? card.description : <ResponsiveText value={card.description} />}
               </p>
 
-              <ul className='flex flex-col gap-4 md:max-lg:gap-[1.13rem]'>
+              <ul className='flex max-md:gap-[1.125rem] flex-col gap-4 md:max-lg:gap-[1.13rem]'>
                 {card.bullets.map((line) => (
                   <li
                     key={typeof line === 'string' ? line : line.desktop.join(' ')}

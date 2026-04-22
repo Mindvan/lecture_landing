@@ -11,7 +11,7 @@ export const Logo = ({
   color = 'currentColor',
   className = '',
 }: LogoProps) => (
-  <div className='flex shrink-0 items-center'>
+  <div className='flex shrink-0 items-center max-md:relative max-md:left-[0.125rem]'>
     <svg
       width={width}
       height={height}
