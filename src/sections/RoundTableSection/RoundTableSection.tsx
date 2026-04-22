@@ -27,11 +27,11 @@ export function RoundTableSection() {
           alt=''
           width={1247}
           height={2019}
-          className='pointer-events-none absolute right-0 top-0 h-auto max-w-none md:max-lg:hidden lg:block [transform:translate(460px,-465px)_scale(1)]'
+          className='pointer-events-none absolute right-0 top-0 h-auto max-w-none lg:block [transform:translate(460px,-465px)_scale(1)]'
           aria-hidden
         />
       </div>
-      <div className='btn-secondary pointer-events-none absolute right-0 top-[-2px] max-md:top-[-18px] z-10 h-auto w-90 max-md:w-auto max-md:px-4 max-md:py-2 md:max-lg:w-[13.125rem] md:max-lg:px-4 md:max-lg:py-3'>
+      <div className='btn-secondary pointer-events-none absolute right-0 top-[-2px] max-md:top-[-18px] z-10 h-auto w-90 max-md:w-auto max-md:px-4 max-md:py-2 md:max-lg:w-[13.125rem] md:max-lg:px-4 md:max-lg:py-3 [@media(min-width:1024px)_and_(max-width:1280px)]:top-[84px]'>
         <p className='body-m whitespace-pre-line max-md:text-left'>
           Дискуссионный формат <br /> с экспертами отрасли
         </p>

@@ -4,7 +4,7 @@ import { footerAboutLinks, footerContacts, footerSocialLinks } from '../../data/
 export function FooterSection() {
   return (
     <footer className='relative z-20 w-full bg-footer text-white'>
-      <div className='mx-auto w-full max-w-[1128px] py-20 px-0 max-md:pt-[27px] max-md:pb-12 max-md:pl-[61px] md:max-lg:py-[3.125rem] md:max-lg:px-16'>
+      <div className='mx-auto w-full py-20 px-6 max-md:px-0 max-md:pt-[27px] max-md:pb-12 max-md:pl-[61px] md:max-lg:py-[3.125rem] md:max-lg:px-16 lg:px-[156px]'>
         <div className='flex justify-between max-md:flex-col max-md:gap-5 md:max-lg:flex-col md:max-lg:gap-[1.38rem]'>
           <div>
             <a href='https://www.protei.ru/' className='inline-flex w-fit shrink-0'>
@@ -17,7 +17,7 @@ export function FooterSection() {
             </a>
           </div>
 
-          <div className='flex gap-[7.19rem] max-md:flex-col [@media(min-width:640px)_and_(max-width:767px)]:flex-row max-md:relative max-md:left-[3px] max-md:gap-[21px] md:max-lg:gap-20'>
+          <div className='flex gap-[7.19rem] max-md:flex-col [@media(min-width:640px)_and_(max-width:767px)]:flex-row max-md:relative max-md:left-[3px] max-md:gap-[21px] md:max-lg:gap-20 [@media(min-width:1024px)_and_(max-width:1100px)]:gap-[10px] [@media(min-width:1101px)_and_(max-width:1199px)]:gap-[40px] [@media(min-width:1200px)_and_(max-width:1300px)]:gap-[clamp(60px,calc(16.69px+5.639vw),90px)]'>
             <nav
               className='flex w-[173px] shrink-0 flex-col gap-4 max-md:gap-2 md:max-lg:gap-2'
               aria-labelledby='footer-about-heading'

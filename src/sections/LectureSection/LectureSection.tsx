@@ -99,13 +99,13 @@ export function LectureSection() {
           aria-hidden
         />
       </div>
-      <div className='relative z-10 grid min-w-0 gap-6 max-md:gap-12 md:max-lg:gap-16 lg:grid-cols-3'>
-        <div className='relative z-0 flex min-w-0 flex-col gap-6 max-md:gap-2 lg:col-span-2'>
+      <div className='relative z-10 grid min-w-0 gap-6 max-md:gap-12 md:max-lg:gap-16 lg:grid-cols-3 [@media(min-width:1024px)_and_(max-width:1410px)]:grid-cols-5'>
+        <div className='relative z-0 flex min-w-0 flex-col gap-6 max-md:gap-2 lg:col-span-2 [@media(min-width:1024px)_and_(max-width:1410px)]:col-span-3'>
           <h2 id='lecture-program-heading' className='h2'>
             Программа лектория
           </h2>
           <div className='flex flex-col gap-12 max-md:gap-[1.125rem] md:max-lg:gap-5'>
-            <p className='body-l w-[32rem] max-md:w-auto'>
+            <p className='body-l w-[32rem] max-md:w-auto [@media(min-width:1024px)_and_(max-width:1200px)]:w-auto'>
               Выберите интересующие вас темы и составьте индивидуальное расписание. Регистрация доступна на каждое событие отдельно.
             </p>
             <div className='flex flex-col gap-12 max-md:gap-[1.0625rem] md:max-lg:gap-5'>
@@ -147,15 +147,21 @@ export function LectureSection() {
                               className='relative z-10 h-[160px] w-[120px] shrink-0 rounded-lg object-cover object-top max-md:h-[124px] max-md:w-[93px] md:max-lg:h-[7.75rem] md:max-lg:w-[5.8125rem]'
                             />
                             <div className='relative z-10 flex min-w-0 flex-1 flex-col gap-2'>
-                              <p className='lecture-time w-fit'>{card.time}</p>
-                              <h3 className='h3 max-md:body-l leacture-title whitespace-pre-line'>{card.title}</h3>
+                              <p className='lecture-time w-fit [@media(min-width:768px)_and_(max-width:1440px)]:text-[clamp(12px,calc(9.714px+0.298vw),14px)]'>
+                                {card.time}
+                              </p>
+                              <h3 className='h3 max-md:body-l leacture-title whitespace-pre-line [@media(min-width:768px)_and_(max-width:1440px)]:text-[clamp(20px,calc(15.429px+0.595vw),24px)]'>
+                                {card.title}
+                              </h3>
                               <div className='flex flex-col'>
-                                <p className='body-m'>
+                                <p className='body-m [@media(min-width:768px)_and_(max-width:1440px)]:text-[clamp(14px,calc(11.714px+0.298vw),16px)]'>
                                   {card.speaker.name}
                                   {card.speaker.position ? `, ${card.speaker.position}` : ''}
                                 </p>
                                 {card.speaker.company ? (
-                                  <p className='body-m'>{card.speaker.company}</p>
+                                  <p className='body-m [@media(min-width:768px)_and_(max-width:1440px)]:text-[clamp(14px,calc(11.714px+0.298vw),16px)]'>
+                                    {card.speaker.company}
+                                  </p>
                                 ) : null}
                               </div>
                             </div>
@@ -178,12 +184,12 @@ export function LectureSection() {
           </div>
         </div>
 
-        <div className='relative z-20 flex min-w-0 flex-col gap-12 max-md:gap-6 items-center md:max-lg:items-normal'>
+        <div className='relative z-20 flex min-w-0 flex-col gap-12 max-md:gap-6 items-center md:max-lg:items-normal [@media(min-width:1024px)_and_(max-width:1410px)]:col-span-2'>
           <h2 id='lecture-registration-heading' className='h2 h2 text-center w-72 md:max-lg:w-auto'>
             Регистрация на лекторий
           </h2>
           <form
-            className='relative w-full isolate z-0 tiles-nohover gap-12 max-md:gap-6 flex flex-col h-[60.19rem] max-md:h-auto max-md:pb-3 md:max-lg:h-auto'
+            className='relative w-full isolate z-0 tiles-nohover gap-12 max-md:gap-6 flex flex-col h-[60.19rem] max-md:h-auto max-md:pb-3 md:max-lg:h-auto [@media(min-width:1024px)_and_(max-width:1200px)]:h-auto [@media(min-width:1024px)_and_(max-width:1200px)]:pt-[36px] [@media(min-width:1024px)_and_(max-width:1200px)]:px-6 [@media(min-width:1024px)_and_(max-width:1200px)]:pb-6'
             onSubmit={handleSubmit(onLectureSubmit)}
             noValidate
             aria-labelledby='lecture-registration-heading'
