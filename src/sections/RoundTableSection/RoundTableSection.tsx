@@ -44,7 +44,7 @@ export function RoundTableSection() {
         <p className='body-l max-md:mt-1 md:max-lg:mt-[1.25rem] lg:mt-4'>Ключевые векторы дискуссии</p>
       </div>
 
-      <div className='relative z-10 mt-6 flex max-md:right-6 max-md:gap-[1.3125rem] flex-col gap-12 md:max-lg:gap-[0.125rem] lg:gap-[2.9rem]'>
+      <div className='relative z-10 mt-6 flex max-md:right-6 max-md:gap-[24px] flex-col gap-12 md:max-lg:gap-[0.125rem] lg:gap-[2.9rem]'>
         {roundtableProgramSections.map((steps, sectionIndex) => {
           const sectionBadge = steps[0]?.badge
           const startIndex =
@@ -75,7 +75,7 @@ export function RoundTableSection() {
                     {step.badge}
                   </p>
                   <h3 className='h3'>{step.title}</h3>
-                  <p className='body-m w-full max-md:w-[16.8125rem] max-md:whitespace-normal md:whitespace-pre-line md:max-lg:w-[36.875rem] md:max-lg:leading-[1.2] lg:w-[685px]'>
+                  <p className='body-m w-full max-md:w-[16.8125rem] max-md:whitespace-normal max-md:leading-[120%] md:whitespace-pre-line md:max-lg:w-[36.875rem] md:max-lg:leading-[1.2] lg:w-[685px]'>
                     {step.body}
                   </p>
                 </TimelineItem>

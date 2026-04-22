@@ -71,7 +71,7 @@ export function Timeline({
 
   return (
     <div
-      className={`flex flex-col [--tl-node-pt:1.5rem] max-md:[--tl-node-pt:0] max-md:mb-0 max-md:gap-[1.25rem] max-md:[--tl-item-gap:1.25rem] gap-12 md:max-lg:gap-6 md:max-lg:[--tl-item-gap:1.5rem] lg:gap-[2.875rem] lg:[--tl-item-gap:2.875rem] ${className}`}
+      className={`flex flex-col [--tl-node-pt:1.5rem] max-md:[--tl-node-pt:0] max-md:mb-0 max-md:gap-[24px] max-md:[--tl-item-gap:24px] gap-12 md:max-lg:gap-6 md:max-lg:[--tl-item-gap:1.5rem] lg:gap-[2.875rem] lg:[--tl-item-gap:2.875rem] ${className}`}
     >
       {items.map((child, i) => {
         if (!isValidElement(child)) return child
@@ -120,7 +120,7 @@ export function TimelineItem({
   const mobileNodeTop = `${mobileNodeTopPx}px`
   const mobileConnectorTop = `${48 + mobileNodeTopPx}px`
   const mobileConnectorHeight =
-    itemIndex === 3 ? 'calc(100% - 21px)' : 'calc(100% - 12px)'
+    itemIndex === 3 ? 'calc(100% - 18px)' : 'calc(100% - 8px)'
 
   return (
     <div className='timeline-item relative flex max-md:gap-0 gap-12 md:max-lg:gap-[2.125rem]'>
@@ -142,12 +142,12 @@ export function TimelineItem({
         {showConnector ? (
           <div
             aria-hidden
-            className='pointer-events-none absolute left-1/2 top-[calc(var(--tl-node-pt,1.5rem)+48px)] z-0 w-px -translate-x-1/2 bg-[#75C9EA] max-md:top-[var(--tl-mobile-connector-top)] max-md:h-[var(--tl-mobile-connector-h)] max-md:bottom-auto'
+            className='pointer-events-none absolute left-1/2 top-[calc(var(--tl-node-pt,1.5rem)+48px)] z-0 w-px -translate-x-1/2 bg-[#75C9EA] max-md:top-[var(--tl-mobile-connector-top)] max-md:h-[var(--tl-mobile-connector-height)] max-md:bottom-auto'
             style={
               {
                 bottom,
                 '--tl-mobile-connector-top': mobileConnectorTop,
-                '--tl-mobile-connector-h': mobileConnectorHeight,
+                '--tl-mobile-connector-height': mobileConnectorHeight,
               } as React.CSSProperties
             }
           />
