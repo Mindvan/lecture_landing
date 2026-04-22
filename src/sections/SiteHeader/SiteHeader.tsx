@@ -93,27 +93,34 @@ export function SiteHeader() {
       </div>
 
       {mobileNavOpen ? (
-        <div
-          id={menuId}
-          className='btn-secondary absolute right-0 top-full z-50 mt-2 h-[108px] w-[133px] rounded-[8px] p-2 text-right text-[14px] font-normal md:hidden'
-          role='menu'
-          aria-label='Меню'
-        >
-          <ul className='flex flex-col gap-2'>
-            {navItems.map((item) => (
-              <li key={item.href} role='none'>
-                <a
-                  role='menuitem'
-                  href={item.href}
-                  className='block rounded-md p-0 text-white text-[14px] font-normal transition-colors hover:bg-white/5 hover:text-blue'
-                  onClick={() => setMobileNavOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <>
+          <div
+            className='fixed inset-0 z-40 bg-[rgb(0_12_20/0.55)] backdrop-blur md:hidden'
+            aria-hidden
+            onClick={() => setMobileNavOpen(false)}
+          />
+          <div
+            id={menuId}
+            className='btn-secondary absolute right-0 top-full z-50 mt-2 h-[108px] w-[133px] rounded-[8px] p-2 text-right text-[14px] font-normal md:hidden'
+            role='menu'
+            aria-label='Меню'
+          >
+            <ul className='flex flex-col gap-2'>
+              {navItems.map((item) => (
+                <li key={item.href} role='none'>
+                  <a
+                    role='menuitem'
+                    href={item.href}
+                    className='block rounded-md p-0 text-white text-[14px] font-normal transition-colors hover:bg-white/5 hover:text-blue'
+                    onClick={() => setMobileNavOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
       ) : null}
     </header>
   )
