@@ -5,8 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // GitHub Pages serves the app from /<repo>/, not from /
-  base: process.env.GITHUB_PAGES_BASE ?? '/',
+  // GitHub Pages serves the site from a subpath (`/<repo>/`),
+  // and `./` makes asset URLs work reliably in that environment.
+  base: './',
   plugins: [
     react(),
     tailwindcss(),
